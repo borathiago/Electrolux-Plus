@@ -1,5 +1,5 @@
 export class Environment {
-    constructor(env) {
-        this.env = env
+    constructor(environment) {
+        this.environment = environment
     }
 }

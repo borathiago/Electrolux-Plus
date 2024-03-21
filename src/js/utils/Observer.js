@@ -1,12 +1,12 @@
 export class Observer {
-    match
+    watch
     constructor() {
-        this.match = new IntersectionObserver((entries) => {
-            entries.map((record) => {
-                if (record.isIntersecting) {
-                    record.target.classList.add('show')
+        this.watch = new IntersectionObserver((entries) => {
+            entries.map((elementObserved) => {
+                if (elementObserved.isIntersecting) {
+                    elementObserved.target.classList.add('show')
                 } else {
-                    record.target.classList.remove('show')
+                    elementObserved.target.classList.remove('show')
                 }
             })
         })

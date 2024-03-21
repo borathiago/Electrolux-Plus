@@ -3,29 +3,27 @@ import { Globals } from './controls/Globals.js'
 import { Observer } from './utils/Observer.js'
 import { Carousel } from './swiper/Carousel.js'
 
+window.onload = () => {
+    const animateScrollHiddenArray = Globals.selectAllToArray('.animate-scroll-hidden')
 
-const hiddenElements = Globals.selectAllToArray('.animate-scroll-hidden')
-
-if (hiddenElements.length > 0) {
-    hiddenElements.map((element, index) => {
-        element.classList.add(`${element.getAttribute('data-animate')}`)
-        element.style.transitionDelay = `${((index + 1) * 1)}ms`
-        window.onscroll = () => {
-            if (element.classList.contains('show')) {
-                element.classList.add(`${element.getAttribute('data-animate')}`)
-                element.style.transitionDelay = `${((index + 1) * 1)}ms`
+    if (animateScrollHiddenArray.length > 0) {
+        animateScrollHiddenArray.map((animateScrollHiddenItem, index) => {
+            animateScrollHiddenItem.classList.add(`${animateScrollHiddenItem.getAttribute('data-animate')}`)
+            animateScrollHiddenItem.style.transitionDelay = `${((index + 1) * 1)}ms`
+            window.onscroll = () => {
+                if (animateScrollHiddenItem.classList.contains('show')) {
+                    animateScrollHiddenItem.classList.add(`${animateScrollHiddenItem.getAttribute('data-animate')}`)
+                    animateScrollHiddenItem.style.transitionDelay = `${((index + 1) * 1)}ms`
+                }
             }
-        }
-        new Observer().match.observe(element)
-    })
-} else {
-    if (instance.env === 'dev') {
+            new Observer().watch.observe(animateScrollHiddenItem)
+        })
+    } 
+
+    if (animateScrollHiddenArray === 0 && instance.environment === 'dev') {
         console.error('Não há .animate-scroll-hidden')
     }
-}
 
-
-window.onload = () => {
     Carousel.loadSwiper('#section-07')
     Carousel.alignSwiperSliders()
 }

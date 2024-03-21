@@ -5,10 +5,10 @@ import { instance } from '../instances.js'
 export class Carousel {
     static loadSwiper(sectionToObserve) {
         new Promise((resolve) => {
-            const electroluxSliders = Globals.selectAllToArray('.electrolux-slider')
-            if (electroluxSliders.length > 0) {
-                electroluxSliders.map( item => {
-                    let p = new Swiper('.swiper.electrolux-slider', {
+            const electroluxSlidersArray = Globals.selectAllToArray('.electrolux-slider')
+            if (electroluxSlidersArray.length > 0) {
+                electroluxSlidersArray.map( electroluxSlider => {
+                    let swiperItem = new Swiper(electroluxSlider, {
                         direction: 'horizontal',
                         slidesPerView : 1,
                         autoplay: false,
@@ -22,21 +22,20 @@ export class Carousel {
                         }
                     })
                     new IntersectionObserver((entries) => {
-                        entries.map((record) => {
-                            if (record.isIntersecting) {
-                                /* p.autoplay.start() */
+                        entries.map((elementObserved) => {
+                            if (elementObserved.isIntersecting) {
+                                swiperItem.autoplay.start()
                             } else {
-                                /* p.autoplay.stop() */
+                                swiperItem.autoplay.stop()
                             }
                         })
                         
                     }).observe(Globals.select(sectionToObserve))
-                    return p, item
+                    return swiperItem
                 } )
-            } else {
-                if (instance.env === 'dev') {
-                    console.error('▶︎ Não há .electrolux-slider nesta revista')
-                }
+            } 
+            if (electroluxSlidersArray.length === 0 && instance.environment === 'dev') {
+                console.error('▶︎ Não há .electrolux-slider nesta revista')
             }
             setTimeout(() => {
                 resolve()
@@ -44,15 +43,15 @@ export class Carousel {
         })
     }
     static alignSwiperSliders() {
-        const swiperItems = Globals.selectAllToArray('.swiper-slide')
-        const numbers = []
-        swiperItems.map((slide) => {
-            numbers.push(slide.offsetHeight)
+        const swiperItemsArray = Globals.selectAllToArray('.swiper-slide')
+        const swiperItemsCarouselItemsHeightArray = []
+        swiperItemsArray.map((swiperItem) => {
+            swiperItemsCarouselItemsHeightArray.push(swiperItem.offsetHeight)
         })
-        const n = numbers
+        const n = swiperItemsCarouselItemsHeightArray
         const max = Math.max(...n)
-        swiperItems.map((item) => {
-            item.style.height = `${max}px`
+        swiperItemsArray.map((swiperItem) => {
+            swiperItem.style.height = `${max}px`
         })
     }
 }
