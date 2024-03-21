@@ -1,0 +1,494 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.swiper.electrolux-slider {
+    @apply !mr-0 !ml-0;
+}
+.swiper-pagination {
+    @apply !relative my-3;
+}
+.swiper.electrolux-slider.swiper-horizontal > .swiper-pagination-bullets, 
+.swiper.electrolux-slider .swiper-pagination-bullets.swiper-pagination-horizontal, 
+.swiper.electrolux-slider .swiper-pagination-custom, .swiper.electrolux-slider .swiper-pagination-fraction {
+    @apply !top-0 !left-0;
+}
+.electrolux-custom-swiper-pagination.swiper-horizontal > .swiper-pagination-bullets, 
+.electrolux-custom-swiper-pagination .swiper-pagination-bullets.swiper-pagination-horizontal, 
+.electrolux-custom-swiper-pagination .swiper-pagination-custom, .electrolux-custom-swiper-pagination .swiper-pagination-fraction {
+    @apply !top-0 !left-0 !max-w-full;
+}
+.electrolux-custom-swiper-pagination .swiper-pagination .swiper-pagination-bullet,
+.electrolux-custom-swiper-pagination .swiper-pagination-bullet {
+    @apply !w-8 !h-8 mobile:!w-10 mobile:!h-10 text-center leading-[0.25rem] text-electrolux-gray-400 opacity-100 bg-electrolux-gray-400;
+}
+.swiper.swiper-horizontal > .swiper-pagination-bullets, 
+.swiper .swiper-pagination-bullets.swiper-pagination-horizontal, 
+.swiper .swiper-pagination-custom, 
+.swiper .swiper-pagination-fraction {
+    @apply !bottom-0;
+}
+.electrolux-custom-swiper-pagination .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    @apply !bg-electrolux-blue-900;
+}
+
+@layer base {
+    * {
+        @apply bg-no-repeat box-border text-balance;
+    }
+    html {
+        @apply !text-[62.5%] scroll-smooth box-border;
+    }
+    body {
+        @apply w-dvw h-dvh min-h-dvh bg-white text-[16px] leading-normal overflow-x-hidden text-balance;
+    }
+    body > * {
+        @apply w-fit text-balance;
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Thin';
+        font-style: normal;
+        font-weight: 100;
+        font-display: swap;
+        src: local('Electrolux Thin'), url(../fonts/ElectroluxSans-Thin.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Thin Oblique';
+        font-style: oblique;
+        font-weight: 100;
+        font-display: swap;
+        src: local('Electrolux Thin Oblique'), url(../fonts/ElectroluxSans-ThinObl.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Light';
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: local('Electrolux Light'), url(../fonts/ElectroluxSans-Light.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Light Oblique';
+        font-style: oblique;
+        font-weight: 200;
+        font-display: swap;
+        src: local('Electrolux Light Oblique'), url(../fonts/ElectroluxSans-LightObl.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: local('Electrolux Regular'), url(../fonts/ElectroluxSans-Regular.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Oblique';
+        font-style: oblique;
+        font-weight: 300;
+        font-display: swap;
+        src: local('Electrolux Regular Oblique'), url(../fonts/ElectroluxSans-RegularObl.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Bold';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: local('Electrolux Bold'), url(../fonts/ElectroluxSans-Bold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'Electrolux Sans Bold Oblique';
+        font-style: oblique;
+        font-weight: 700;
+        font-display: swap;
+        src: local('Electrolux Bold Oblique'), url(../fonts/ElectroluxSans-BoldObl.woff) format('woff');
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply leading-[1.125] tracking-tight;
+    }
+    p {
+        @apply leading-snug tracking-tight;
+    }
+    img {
+        @apply min-w-full max-w-full block mx-auto h-auto;
+    }
+    section {
+        @apply w-full relative overflow-hidden;
+        overflow-wrap: break-word;
+    }
+    div {
+        overflow-wrap: break-word;
+    }
+}
+
+@layer components {
+    h1, .h1 {
+        @apply text-2.675x;
+    }
+    .subtitle {
+        @apply text-2.125x;
+    }
+    h2, .h2 {
+        @apply text-4.5x;
+    }
+    h3, .h3 {
+        @apply text-4x;
+    }
+    h4, .h4 {
+        @apply text-4x;
+    }
+    h6, .h6 {
+        @apply text-2x;
+    }
+    p.normal-paragraph {
+        @apply text-1.875x;
+    }
+    p.normal-paragraph-plus {
+        @apply text-2.25x;
+    }
+    p.standard-paragraph {
+        @apply text-1.675x;
+    }
+    p.paragraph-plus {
+        @apply text-2.5x;
+    }
+    p.disclaimer {
+        @apply text-0.75x;
+    }
+    .electrolux-slider p.paragraph-plus {
+        @apply text-2.25x;
+    }
+    small {
+        @apply text-0.75x;
+    }
+    @media (min-width: 390px) {
+        h1, .h1 {
+            @apply text-3x;
+        }
+        .subtitle {
+            @apply text-2.25x;
+        }
+        h2, .h2 {
+            @apply text-5x;
+        }
+        h3, .h3 {
+            @apply text-4.25x;
+        }
+        h4, .h4 {
+            @apply text-4.125x;
+        }
+        h6, .h6 {
+            @apply text-2.25x;
+        }
+        p.disclaimer {
+            @apply text-1x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.875x;
+        }
+        p.standard-paragraph {
+            @apply text-1.875x;
+        }
+        p.normal-paragraph {
+            @apply text-2.25x;
+        }
+        p.normal-paragraph-plus,
+        .electrolux-slider p.paragraph-plus {
+            @apply text-2.675x;
+        }
+        small {
+            @apply text-0.5x;
+        }
+    }
+    @media (min-width: 425px) {
+    }
+    @media (min-width: 640px) {
+        h1, .h1 {
+            @apply text-4.5x;
+        }
+        .subtitle {
+            @apply text-3.5x;
+        }
+        h2, .h2 {
+            @apply text-5x;
+        }
+        h3, .h3 {
+            @apply text-5.75x;
+        }
+        h4, .h4 {
+            @apply text-5x;
+        }
+        h6, .h6 {
+            @apply text-2.25x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.875x;
+        }
+        p.standard-paragraph {
+            @apply text-2x;
+        }
+        p.normal-paragraph {
+            @apply text-2.365x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-2.5x;
+        }
+        p.paragraph-plus {
+            @apply text-2.875x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-4.25x;
+        }
+        small {
+            @apply text-0.75x;
+        }
+    }
+    @media (min-width: 768px) {
+        h1, .h1 {
+            @apply text-5.5x;
+        }
+        .subtitle {
+            @apply text-4.25x;
+        }
+        h2, .h2 {
+            @apply text-6.875x;
+        }
+        h3, .h3 {
+            @apply text-5.75x;
+        }
+        h4, .h4 {
+            @apply text-6.125x;
+        }
+        h6, .h6 {
+            @apply text-2.25x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.875x;
+        }
+        p.standard-paragraph {
+            @apply text-2x;
+        }
+        p.normal-paragraph {
+            @apply text-3.25x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-2.5x;
+        }
+        p.paragraph-plus {
+            @apply text-3.5x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-4.875x;
+        }
+    }
+    @media (min-width: 980px) {
+        h1, .h1 {
+            @apply text-2.75x;
+        }
+        .subtitle {
+            @apply text-2.25x;
+        }
+        h2, .h2 {
+            @apply text-4x;
+        }
+        h3, .h3 {
+            @apply text-4.25x;
+        }
+        h4, .h4 {
+            @apply text-3.125x;
+        }
+        h6, .h6 {
+            @apply text-2x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.25x;
+        }
+        p.standard-paragraph {
+            @apply text-1.25x;
+        }
+        p.normal-paragraph {
+            @apply text-1.875x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-1.5x;
+        }
+        p.paragraph-plus {
+            @apply text-2.25x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-3.25x;
+        }
+    }
+    @media (min-width: 1024px) {
+        h1, .h1 {
+            @apply text-3x;
+        }
+        .subtitle {
+            @apply text-2.25x;
+        }
+        h4, .h4 {
+            @apply text-3.5x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.5x;
+        }
+        p.standard-paragraph {
+            @apply text-1.5x;
+        }
+        p.normal-paragraph {
+            @apply text-2x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-1.75x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-3.5x;
+        }
+    }
+    @media (min-width: 1280px) {
+        h1, .h1 {
+            @apply text-3.75x;
+        }
+        .subtitle {
+            @apply text-2.875x;
+        }
+        h2, .h2 {
+            @apply text-5.125x;
+        }
+        h3, .h3 {
+            @apply text-4.875x;
+        }
+        h4, .h4 {
+            @apply text-3.5x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.5x;
+        }
+        p.standard-paragraph {
+            @apply text-1.5x;
+        }
+        p.normal-paragraph {
+            @apply text-2x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-1.75x;
+        }
+        p.paragraph-plus {
+            @apply text-2.875x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-4.125x;
+        }
+    }
+    @media (min-width: 1366px) {
+        h1, .h1 {
+            @apply text-4x;
+        }
+        .subtitle {
+            @apply text-3x;
+        }
+        h2, .h2 {
+            @apply text-6x;
+        }
+        h3, .h3 {
+            @apply text-5.25x;
+        }
+        h4, .h4 {
+            @apply text-3.75x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.75x;
+        }
+        p.standard-paragraph {
+            @apply text-1.875x;
+        }
+        p.normal-paragraph {
+            @apply text-2.25x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-2.5x;
+        }
+        p.paragraph-plus {
+            @apply text-3x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-4.75x;
+        }
+    }
+    @media (min-width: 1600px) {
+        h1, .h1 {
+            @apply text-4.75x;
+        }
+        .subtitle {
+            @apply text-3.5x;
+        }
+        h2, .h2 {
+            @apply text-6.875x;
+        }
+        h3, .h3 {
+            @apply text-5.25x;
+        }
+        h4, .h4 {
+            @apply text-4.5x;
+        }
+        p.smaller-paragraph {
+            @apply text-1.75x;
+        }
+        p.standard-paragraph {
+            @apply text-1.875x;
+        }
+        p.normal-paragraph {
+            @apply text-2.25x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-2.5x;
+        }
+        p.paragraph-plus {
+            @apply text-3x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-5x;
+        }
+        small {
+            @apply text-1x;
+        }
+    }
+    @media (min-width: 1920px) {
+        h1, .h1 {
+            @apply text-5.75x;
+        }
+        .subtitle {
+            @apply text-4.375x;
+        }
+        h2, .h2 {
+            @apply text-8.125x;
+        }
+        h3, .h3 {
+            @apply text-6.875x;
+        }
+        h4, .h4 {
+            @apply text-5.875x;
+        }
+        h6, .h6 {
+            @apply text-3.25x;
+        }
+        p.standard-paragraph {
+            @apply text-2.25x;
+        }
+        p.normal-paragraph {
+            @apply text-3.125x;
+        }
+        p.normal-paragraph-plus {
+            @apply text-3.25x;
+        }
+        p.paragraph-plus {
+            @apply text-4.25x;
+        }
+        .electrolux-slider p.paragraph-plus {
+            @apply text-6x;
+        }
+    }
+}

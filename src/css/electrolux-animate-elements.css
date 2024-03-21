@@ -1,0 +1,65 @@
+.animate-scroll-hidden {
+	transition: all cubic-bezier(0.11, 0, 0.5, 0) 625ms;
+    opacity: 0;
+}
+
+.animate-scroll-hidden.show {
+	opacity: 1;
+	transition: all cubic-bezier(0.11, 0, 0.5, 0) 625ms;
+}
+
+.animate-scroll-hidden.entrance-opacity {
+	opacity: 0;
+}
+
+.animate-scroll-hidden.entrance-left {
+	transform: translateX(-24px);
+}
+
+.animate-scroll-hidden.entrance-left-big {
+	transform: translateX(-48px);
+}
+
+.animate-scroll-hidden.entrance-right {
+	transform: translateX(24px);
+}
+
+.animate-scroll-hidden.entrance-right-big {
+	transform: translateX(48px);
+}
+
+.animate-scroll-hidden.entrance-bottom {
+	transform: translateY(24px);
+}
+
+.animate-scroll-hidden.entrance-bottom-big {
+	transform: translateY(48px);
+}
+
+.animate-scroll-hidden.entrance-up {
+	transform: translateY(-24px);
+}
+
+.animate-scroll-hidden.entrance-up-big {
+	transform: translateY(-48px);
+}
+
+.animate-scroll-hidden.show.entrance-left,
+.animate-scroll-hidden.show.entrance-left-big,
+.animate-scroll-hidden.show.entrance-right,
+.animate-scroll-hidden.show.entrance-right-big {
+	transform: translateX(0);
+}
+
+.animate-scroll-hidden.show.entrance-bottom,
+.animate-scroll-hidden.show.entrance-bottom-big,
+.animate-scroll-hidden.show.entrance-up,
+.animate-scroll-hidden.show.entrance-up-big {
+	transform: translateY(0);
+}
+
+
+.animate-scroll-hidden.show.entrance-opacity {
+	opacity: 1 !important;
+}
+
